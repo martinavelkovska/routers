@@ -1,0 +1,10 @@
+# Ignore build artifacts
+/build/
+
+# Ignore log files
+*.log
+
+routers/01-starting-project/node_modules/
+
+node_modules/
+# Ignore temporary files
