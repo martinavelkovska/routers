@@ -2,8 +2,8 @@
 import HomePage from './pages/Home';
 import ProductsPage from './pages/Products';
 import RootLayout from './pages/Root';
-
-
+import ErrorPage from './pages/Error';
+import ProductDetailPage from './pages/ProductDetail';
 
 // //alternative way:
 // const routerDefinitons = createRoutesFromElements(
@@ -19,9 +19,13 @@ import RootLayout from './pages/Root';
 //https://example.com/products -> domain e example.com /products -> path
 const router =  createBrowserRouter([
 
-  {path:'/', element: <RootLayout />, children: [
-    { path: '/', element: <HomePage /> }, //represent one route, element: a component should be loaded
-    { path: '/products', element: <ProductsPage />}
+  {path:'/',  //starting path
+  element: <RootLayout />, //wrapping layout
+  errorElement: <ErrorPage />,
+  children: [
+    { index:true, element: <HomePage /> }, //represent one route, element: a component should be loaded ... index:true - default
+    { path: 'products', element: <ProductsPage />},
+    {path: 'products/:productId', element:<ProductDetailPage />} //dynamic is productId
   ]}, // loads the layout wrapper that warpp arounf ther routes
 
  ]);
